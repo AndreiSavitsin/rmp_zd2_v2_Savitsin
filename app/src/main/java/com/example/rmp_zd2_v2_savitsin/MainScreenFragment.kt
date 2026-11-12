@@ -51,11 +51,11 @@ class MainScreenFragment : Fragment() {
         buttonFavorite = view.findViewById(R.id.btnFavorite)
 
         buttonDiscussions1.setOnClickListener {
-            btnDics1(view)
+            btnDisc1(view)
         }
 
         buttonDiscussions2.setOnClickListener {
-            btnDics2(view)
+            btnDisc2(view)
         }
 
         buttonFavorite.setOnClickListener {
@@ -63,7 +63,7 @@ class MainScreenFragment : Fragment() {
         }
     }
 
-    fun btnDics1(view: View)
+    fun btnDisc1(view: View)
     {
         val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
 
@@ -72,7 +72,7 @@ class MainScreenFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
-    fun btnDics2(view: View)
+    fun btnDisc2(view: View)
     {
         val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
 

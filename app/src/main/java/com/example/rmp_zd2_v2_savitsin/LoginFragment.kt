@@ -76,9 +76,23 @@ class LoginFragment : Fragment() {
             return
         }
 
+        if (account.password.length < 8)
+        {
+            val alert = AlertDialog.Builder(requireContext())
+                .setTitle("Ошибка")
+                .setMessage("Длина пароля должна быть >= 8")
+                .setPositiveButton("OK",null)
+                .create()
+                .show()
+            return
+        }
+
         // Достаем сохраненный аккаунт из SharedPreferences
-        var savedAccount = Gson().fromJson(preferences.getString("account", ""),
-            Account::class.java)
+        val savedJson: String? = preferences.getString("account", null)
+        var savedAccount: Account? = null
+        if (savedJson != null) {
+            savedAccount = Gson().fromJson(savedJson, Account::class.java)
+        }
 
         // Если аккаунта нет — сохраняем его
         if (savedAccount == null) {
